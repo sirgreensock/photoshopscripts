@@ -1,4 +1,4 @@
-// New Export Layers to PDF Presentation
+﻿// New Export Layers to PDF Presentation
 // Nikola Odic 2018
 //
 // Grabs groups and layers to generate a PDF Presentation
@@ -90,6 +90,16 @@ function startDialog(){
 
 	//Settings for save destination
 	var pathGroup = saveDialog.add('panel');
+
+     //Check if the document has previously been saved, if yes the default save location is the same as the document path
+    try {
+        var docPath = activeDocument.path;
+        savePath = doc.path.fsName; //Converts document path to human readable path
+        }
+    catch (e) {
+            $.write("Document is not saved, defaulting to Desktop!");
+        }
+    
 	pathGroup.add("statictext",undefined,"Destination:");
 	pathText = pathGroup.add("edittext",undefined, savePath);
 	pathText.characters = 30;
@@ -298,7 +308,7 @@ function processFiles(files,exportName){
 
 		//Makes sure the saved files arent duplicates so there are no overwrite issues
 		if (newPage.exists) {
-		newPage = renameDuplicate(layerName,saveFolder,0);
+		newPage = renameDuplicate(cleanExportName,tempFolder,0);
 		}
 
 		//hides all layers but the current one
@@ -323,15 +333,15 @@ function processFiles(files,exportName){
 }
 
 //attempts to append '-1' at the end of filename, if that doesnt work it iterates through numbers until it encounters one that does
-function renameDuplicate(layerID, saveFolderID, value) {
+function renameDuplicate(fileID, saveFolderID, value) {
 	var i = value + 1;
 
-	var newLayerFile = new File(saveFolderID + "/" + layerID + "-" + i + ".png");
-	if (newLayerFile.exists) {
-		newLayerFile = renameDuplicate(layerID,saveFolderID,i);
+	var newFile = new File(saveFolderID + "/" + fileID + "-" + i + ".png");
+	if (newFile.exists) {
+		newFile = renameDuplicate(fileID,saveFolderID,i);
 	}
 
-	return newLayerFile;
+	return newFile;
 }
 
 //finds all groups under _parent, sets them to visible
