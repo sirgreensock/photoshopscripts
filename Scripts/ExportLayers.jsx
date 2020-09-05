@@ -129,7 +129,7 @@ function startDialog(){
 			setHistory(); 
                 
                 //check which layers to export
-               if (selectedLayersOnly)
+               if (selectedLayersOnly == true)
                 {
                    handleExportSelectedLayers();                   
                    }
