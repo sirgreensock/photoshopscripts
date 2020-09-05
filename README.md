@@ -7,7 +7,7 @@ Tested and compatible with all CC versions of Photoshop but should probably work
 Copy script .jsx files into the Scripts folder wherever you have Photoshop installed eg. `C:\Program Files\Adobe\Adobe Photoshop CC 2018\Presets\Scripts`
 
 ## ExportLayers
-![Screenshot showing script popup options detailed below](/Screenshots/Screenshot-ExportLayers.png)
+![Screenshot showing script popup options detailed below](/Screenshots/Screenshot-ExprtLayers.png)
 
 This script will export all layers from an opened Photoshop file into separate uncompressed 32-bit PNG files. It has a number of settings:
 * Select save destination -- By default is set  to the same filepath as the original file
