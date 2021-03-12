@@ -30,7 +30,7 @@ This script will export all layers from an opened Photoshop file into PDF presen
 ## Flatten Selected Groups
 This script will take every selected group and merge them down into individual layers, ignoring any non-group layers that were selected.
 
-## New Layers From Groups
+## New Groups From Layers
 This script will take every selected layer and create a parent group for each one individually, naming the group after the layer name
 
 ## Flatten Adjustment Layers
