@@ -27,6 +27,12 @@ This script will export all layers from an opened Photoshop file into PDF presen
 * Automatic filenames -- This setting will name the presentation based on the name of the document (for ungrouped layers) and based on group names (for grouped layers)
 * Manual filenames -- This setting will override the name of the file when the entire document is exported as a single presentation
 
+## Flatten Selected Groups
+This script will take every selected group and merge them down into individual layers, ignoring any non-group layers that were selected.
+
+## New Groups From Layers
+This script will take every selected layer and create a parent group for each one individually, naming the group after the layer name
+
 ## Flatten Adjustment Layers
 
 This script will take any selected Adjustment Layer and merge it down to layers below it that it can affect. If it is in a clipping mask it will only affect what it is clipped to, otherwise it will check all layers below it and merge down to them.
