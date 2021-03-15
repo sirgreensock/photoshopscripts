@@ -37,17 +37,23 @@ function start()
     
     for( i = 0; i < selectedLayers.length; i++)
     {
+        deselectAllLayers();
+
         if (selectedLayers[i].typename === "LayerSet")
         {
             app.activeDocument.activeLayer = selectedLayers[i];
 
             //Photoshop can only select layers by name, so we need to ensure the name is unique...
             var oldName = selectedLayers[i].name;
-            var newName = selectedLayers[i].name + Math.random().toString(36).substring(2, 15);
+            var newName = selectedLayers[i].name + Math.random().toString().substring(2, 15);
             
             //Rename, select by name, rename back to cached name
             selectedLayers[i].name = newName;
+
+            $.write("New name is " + newName );
+
             selectLayerName(newName);
+
             selectedLayers[i].name = oldName;
 
             app.activeDocument.activeLayer.merge();          
